@@ -3,7 +3,7 @@ package imgcompare;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import javax.imageio.ImageIO; // [cite: 58]
+import javax.imageio.ImageIO; // 
 
 /**
  * Programme principal pour comparer deux images PNG.
@@ -54,37 +54,37 @@ public class Main {
             // 3. Initialiser le comparateur
             ImageComparator comparator = new ImageComparator(img1, img2);
 
-            // 4. Vérifier les dimensions avant de comparer [cite: 65]
+            // 4. Vérifier les dimensions avant de comparer 
             if (!comparator.haveSameDimensions()) {
                 System.err.println("Erreur: Les images n'ont pas les mêmes dimensions.");
                 return;
             }
 
             // 5. Obtenir le nombre de pixels différents
-            int diffPixels = comparator.countDifferentPixels(); // [cite: 45]
+            int diffPixels = comparator.countDifferentPixels(); // 
 
-            // 6. Afficher le résultat (OK/KO) [cite: 48]
-            // Moins de 1000 pixels différents = OK [cite: 14]
+            // 6. Afficher le résultat (OK/KO) 
+            // Moins de 1000 pixels différents = OK 
             if (diffPixels < 1000) {
-                System.out.println("OK"); // [cite: 25]
+                System.out.println("OK"); // 
             } else {
-                System.out.println("KO"); // [cite: 25]
+                System.out.println("KO"); // 
             }
 
-            // 7. Afficher le nombre de pixels différents [cite: 48]
-            System.out.println("Les deux images diffèrent de " + diffPixels + " pixels."); // [cite: 26]
+            // 7. Afficher le nombre de pixels différents 
+            System.out.println("Les deux images diffèrent de " + diffPixels + " pixels."); // 
 
             // 8. Générer et écrire l'image différentielle
-            // On ne la génère que s'il y a au moins 1 pixel différent [cite: 16]
+            // On ne la génère que s'il y a au moins 1 pixel différent 
             if (diffPixels > 0) {
-                BufferedImage diffImage = comparator.generateDiffImage(); // [cite: 46]
+                BufferedImage diffImage = comparator.generateDiffImage(); // 
 
                 File outputFile = new File("diff.png");
                 ImageIO.write(diffImage, "png", outputFile); // [cite: 49, 60]
                 System.out.println("Une image 'diff.png' a été générée.");
             }
 
-        } catch (IOException e) { // [cite: 64]
+        } catch (IOException e) { // 
             System.err.println("Erreur d'entrée/sortie : " + e.getMessage());
         } catch (IllegalArgumentException e) {
             // Levée par ImageComparator si les dimensions ne correspondent pas
