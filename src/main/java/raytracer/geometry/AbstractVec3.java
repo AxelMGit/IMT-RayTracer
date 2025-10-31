@@ -1,4 +1,4 @@
-package raytracer;
+package raytracer.geometry;
 
 /**
  * Classe abstraite de base pour les éléments à 3 composantes (double).

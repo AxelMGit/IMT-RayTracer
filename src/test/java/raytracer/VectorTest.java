@@ -1,6 +1,9 @@
 package raytracer;
 
 import org.junit.jupiter.api.Test;
+import raytracer.geometry.AbstractVec3;
+import raytracer.geometry.Vector;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class VectorTest {

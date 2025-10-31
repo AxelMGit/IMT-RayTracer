@@ -1,4 +1,6 @@
-package raytracer;
+package raytracer.imaging;
+
+import raytracer.geometry.AbstractVec3;
 
 /**
  * Représente une couleur (R, G, B) avec des composantes flottantes.

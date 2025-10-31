@@ -1,6 +1,9 @@
 package raytracer;
 
 import org.junit.jupiter.api.Test;
+import raytracer.geometry.Point;
+import raytracer.geometry.Vector;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class PointTest {

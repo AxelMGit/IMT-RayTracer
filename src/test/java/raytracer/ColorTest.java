@@ -1,6 +1,9 @@
 package raytracer;
 
 import org.junit.jupiter.api.Test;
+import raytracer.geometry.AbstractVec3;
+import raytracer.imaging.Color;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ColorTest {

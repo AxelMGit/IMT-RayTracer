@@ -1,4 +1,4 @@
-package raytracer;
+package raytracer.geometry;
 
 /**
  * Représente un point en 3D.

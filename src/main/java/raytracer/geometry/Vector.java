@@ -1,4 +1,4 @@
-package raytracer;
+package raytracer.geometry;
 
 /**
  * Représente un vecteur en 3D (direction ou normale).
