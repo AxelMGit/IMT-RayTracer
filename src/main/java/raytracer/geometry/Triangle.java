@@ -5,9 +5,6 @@ import raytracer.raytracer.Intersection;
 import raytracer.raytracer.Ray;
 import java.util.Optional;
 
-/**
- * Représente un objet Triangle dans la scène.
- */
 public class Triangle extends Shape {
 
     private Point p1, p2, p3;
@@ -21,16 +18,12 @@ public class Triangle extends Shape {
 
     @Override
     public Optional<Intersection> intersect(Ray ray) {
-        // Algorithme de Möller–Trumbore (Optimisé pour les triangles)
-        //
-
+        // Algorithme de Möller–Trumbore
         Vector edge1 = p2.subtract(p1);
         Vector edge2 = p3.subtract(p1);
-
         Vector h = ray.getDirection().cross(edge2);
         double a = edge1.dot(h);
 
-        // Rayon parallèle au triangle
         if (a > -1e-9 && a < 1e-9) return Optional.empty();
 
         double f = 1.0 / a;
@@ -44,25 +37,16 @@ public class Triangle extends Shape {
 
         if (v < 0.0 || u + v > 1.0) return Optional.empty();
 
-        // Calcul de t
         double t = f * edge2.dot(q);
 
         if (t > 1e-4) {
-            // Calcul de la normale (produit vectoriel)
             Vector normal = edge1.cross(edge2).normalize();
-
-            // Correction de la normale pour qu'elle fasse face à la caméra
-            if (normal.dot(ray.getDirection()) > 0) {
-                normal = normal.multiply(-1);
-            }
-
+            if (normal.dot(ray.getDirection()) > 0) normal = normal.multiply(-1);
             return Optional.of(new Intersection(t, this, normal, this.diffuse, this.specular, this.shininess));
         }
-
         return Optional.empty();
     }
 
-    // Getters
     public Point getP1() { return p1; }
     public Point getP2() { return p2; }
     public Point getP3() { return p3; }
