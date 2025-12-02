@@ -1,13 +1,11 @@
 package raytracer.geometry;
 
 import raytracer.imaging.Color;
+import raytracer.raytracer.Intersection;
+import raytracer.raytracer.Ray;
+import java.util.Optional; // [cite: 203]
 
-/**
- * Classe abstraite de base pour toutes les formes géométriques de la scène.
- * Stocke les propriétés de matériaux communes (couleurs).
- */
 public abstract class Shape {
-
     protected Color diffuse;
     protected Color specular;
 
@@ -16,12 +14,9 @@ public abstract class Shape {
         this.specular = specular;
     }
 
-    // --- Getters ---
-    public Color getDiffuse() {
-        return diffuse;
-    }
+    // Nouvelle méthode abstraite
+    public abstract Optional<Intersection> intersect(Ray ray);
 
-    public Color getSpecular() {
-        return specular;
-    }
+    public Color getDiffuse() { return diffuse; }
+    public Color getSpecular() { return specular; }
 }

@@ -21,8 +21,8 @@ public class Main {
         if (args.length == 0) {
             // Cas "aucune image rentrée" : on définit des chemins par défaut
             System.out.println("Aucun argument fourni. Utilisation des images par défaut.");
-            pathImg1 = "src/main/resources/test_compare_image1.png"; // Assure-toi que ce fichier existe
-            pathImg2 = "src/main/resources/test_compare_image2.png"; // Assure-toi que ce fichier existe
+            pathImg1 = "src/main/resources/generee.png"; // Assure-toi que ce fichier existe
+            pathImg2 = "src/main/resources/prof.png"; // Assure-toi que ce fichier existe
 
         } else if (args.length == 2) {
             // Cas normal : on utilise les arguments fournis

@@ -1,6 +1,9 @@
 package raytracer.geometry;
 
 import raytracer.imaging.Color;
+import raytracer.raytracer.Intersection; // Import nécessaire
+import raytracer.raytracer.Ray;          // Import nécessaire
+import java.util.Optional;               // Import nécessaire
 
 /**
  * Représente un objet Triangle dans la scène.
@@ -16,6 +19,13 @@ public class Triangle extends Shape {
         this.p1 = p1;
         this.p2 = p2;
         this.p3 = p3;
+    }
+
+    // --- Méthode obligatoire ajoutée ---
+    @Override
+    public Optional<Intersection> intersect(Ray ray) {
+        // Pour l'instant, on ignore les triangles
+        return Optional.empty();
     }
 
     // --- Getters ---

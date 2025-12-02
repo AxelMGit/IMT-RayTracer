@@ -1,6 +1,9 @@
 package raytracer.geometry;
 
 import raytracer.imaging.Color;
+import raytracer.raytracer.Intersection; // Import nécessaire
+import raytracer.raytracer.Ray;          // Import nécessaire
+import java.util.Optional;               // Import nécessaire
 
 /**
  * Représente un objet Plan infini dans la scène.
@@ -16,12 +19,14 @@ public class Plane extends Shape {
         this.normal = normal;
     }
 
-    // --- Getters ---
-    public Point getPoint() {
-        return point;
+    // --- Méthode obligatoire ajoutée ---
+    @Override
+    public Optional<Intersection> intersect(Ray ray) {
+        // Pour l'instant, on ignore les plans (Jalon 3 = Sphères uniquement)
+        return Optional.empty();
     }
 
-    public Vector getNormal() {
-        return normal;
-    }
+    // --- Getters ---
+    public Point getPoint() { return point; }
+    public Vector getNormal() { return normal; }
 }
