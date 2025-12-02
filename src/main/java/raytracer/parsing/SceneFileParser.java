@@ -156,6 +156,10 @@ public class SceneFileParser {
                     scene.addShape(new Triangle(vertices.get(i1), vertices.get(i2), vertices.get(i3), currentDiffuse, currentSpecular, currentShininess));
                     break;
 
+                case "maxdepth": //
+                    scene.setMaxDepth(i(parts[1]));
+                    break;
+
                 default:
                     System.err.println("Commande inconnue : " + command);
             }
