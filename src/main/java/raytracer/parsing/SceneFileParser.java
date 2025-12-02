@@ -23,6 +23,7 @@ public class SceneFileParser {
     // Variables d'état pour le parsing 
     private Color currentDiffuse = new Color(0, 0, 0);
     private Color currentSpecular = new Color(0, 0, 0);
+    private double currentShininess = 0.0;
     private int maxVerts = 0;
     private List<Point> vertices = new ArrayList<>();
 
@@ -126,21 +127,25 @@ public class SceneFileParser {
                     vertices.add(new Point(d(parts[1]), d(parts[2]), d(parts[3])));
                     break;
 
+                case "shininess":
+                    currentShininess = d(parts[1]);
+                    break;
+
                 // --- Objets (Formes) ---
                 case "sphere": // 
                     validateAmbientDiffuse(scene.getAmbient(), currentDiffuse); // Validation 
                     Point center = new Point(d(parts[1]), d(parts[2]), d(parts[3]));
                     double radius = d(parts[4]);
-                    scene.addShape(new Sphere(center, radius, currentDiffuse, currentSpecular));
+                    scene.addShape(new Sphere(center, radius, currentDiffuse, currentSpecular, currentShininess));
                     break;
                 case "plane": // 
                     validateAmbientDiffuse(scene.getAmbient(), currentDiffuse); // Validation 
                     Point p = new Point(d(parts[1]), d(parts[2]), d(parts[3]));
                     Vector n = new Vector(d(parts[4]), d(parts[5]), d(parts[6]));
-                    scene.addShape(new Plane(p, n, currentDiffuse, currentSpecular));
+                    scene.addShape(new Plane(p, n, currentDiffuse, currentSpecular, currentShininess));
                     break;
                 case "tri": // 
-                    validateAmbientDiffuse(scene.getAmbient(), currentDiffuse); // Validation 
+                    validateAmbientDiffuse(scene.getAmbient(), currentDiffuse); // Validation
                     int i1 = i(parts[1]);
                     int i2 = i(parts[2]);
                     int i3 = i(parts[3]);
@@ -148,7 +153,7 @@ public class SceneFileParser {
                     validateVertexIndex(i1);
                     validateVertexIndex(i2);
                     validateVertexIndex(i3);
-                    scene.addShape(new Triangle(vertices.get(i1), vertices.get(i2), vertices.get(i3), currentDiffuse, currentSpecular));
+                    scene.addShape(new Triangle(vertices.get(i1), vertices.get(i2), vertices.get(i3), currentDiffuse, currentSpecular, currentShininess));
                     break;
 
                 default:

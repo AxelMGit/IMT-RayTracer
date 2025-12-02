@@ -10,8 +10,8 @@ public class Sphere extends Shape {
     private Point center;
     private double radius;
 
-    public Sphere(Point center, double radius, Color diffuse, Color specular) {
-        super(diffuse, specular);
+    public Sphere(Point center, double radius, Color diffuse, Color specular, double shininess) {
+        super(diffuse, specular, shininess);
         this.center = center;
         this.radius = radius;
     }
@@ -50,8 +50,9 @@ public class Sphere extends Shape {
         // Normale n = (P - Centre) normalisé
         Vector normal = p.subtract(center).normalize();
 
-        // On retourne l'intersection avec la normale et la couleur diffuse
-        return Optional.of(new Intersection(t, this, normal, this.diffuse));
+        // On retourne l'intersection avec TOUS les paramètres (y compris specular)
+        //
+        return Optional.of(new Intersection(t, this, normal, this.diffuse, this.specular, this.shininess));
     }
 
     public Point getCenter() { return center; }
