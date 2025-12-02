@@ -1,11 +1,9 @@
 package raytracer.raytracer;
 
 import raytracer.geometry.Point;
+import raytracer.geometry.Vector; // Import
 import raytracer.imaging.Color;
 
-/**
- * Représente une source de lumière ponctuelle.
- */
 public class PointLight extends AbstractLight {
 
     private Point position;
@@ -17,5 +15,11 @@ public class PointLight extends AbstractLight {
 
     public Point getPosition() {
         return position;
+    }
+
+    @Override
+    public Vector getL(Point p) {
+        // Vecteur du point p VERS la lumière (position - p)
+        return position.subtract(p).normalize();
     }
 }

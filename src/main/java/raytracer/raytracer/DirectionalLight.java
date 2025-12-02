@@ -1,11 +1,9 @@
 package raytracer.raytracer;
 
+import raytracer.geometry.Point; // Import
 import raytracer.geometry.Vector;
 import raytracer.imaging.Color;
 
-/**
- * Représente une source de lumière directionnelle.
- */
 public class DirectionalLight extends AbstractLight {
 
     private Vector direction;
@@ -17,5 +15,12 @@ public class DirectionalLight extends AbstractLight {
 
     public Vector getDirection() {
         return direction;
+    }
+
+    @Override
+    public Vector getL(Point p) {
+        // Pour une lumière directionnelle, le vecteur L est constant
+        // On le normalise par sécurité
+        return direction.normalize();
     }
 }
