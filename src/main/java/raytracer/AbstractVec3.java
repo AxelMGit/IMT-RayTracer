@@ -1,13 +1,13 @@
-package raytracer.geometry;
+package raytracer;
 
 /**
  * Classe abstraite de base pour les éléments à 3 composantes (double).
- * 
+ * [cite: 47, 49]
  * Gère le stockage des composantes et la logique de comparaison (equals).
  */
 public abstract class AbstractVec3 {
 
-    // Epsilon pour la comparaison des doubles 
+    // Epsilon pour la comparaison des doubles [cite: 58, 59]
     public static final double EPSILON = 1e-9;
 
     protected double x, y, z;

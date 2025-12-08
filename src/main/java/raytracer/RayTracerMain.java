@@ -9,6 +9,7 @@ public class RayTracerMain {
     public static void main(String[] args) {
         if (args.length != 1) {
             System.err.println("Usage: java raytracer.RayTracerMain <scene_file.txt>");
+            System.err.println("Usage: RayTracer.exe <scene_file.txt>");
             return;
         }
 

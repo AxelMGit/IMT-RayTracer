@@ -33,6 +33,7 @@ public class Main {
             // Cas invalide (1 seul argument, ou plus de 2)
             System.err.println("Erreur: Nombre d'arguments incorrect.");
             System.err.println("Usage: java imgcompare.Main <image1.png> <image2.png>");
+            System.err.println("Usage: ImageCompare.exe <image1.png> <image2.png>");
             System.err.println("Ou ne fournissez aucun argument pour utiliser les images par défaut.");
             return;
         }
