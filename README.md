@@ -60,7 +60,7 @@ java -jar out/artifacts/ImgCompare/ImgCompare.jar <image1.png> <image2.png>
 ### Géométrie et Scène
 
 - **Formes** : Support des sphères, plans infinis et triangles (Algorithme de Möller-Trumbore).
-- **Accélération** : Structure de données **BVH (Bounding Volume Hierarchy)** pour un rendu rapide des scènes complexes (ex: Dragon Stanford à 50k triangles).
+- **Accélération** : Structure de données **BVH (Bounding Volume Hierarchy - Pour la version 4K Uniquement, non implémenté dans le rendu final)** pour un rendu rapide des scènes complexes (ex: Dragon Stanford à 50k triangles).
 - **Récursion** : Gestion de la réflexion miroir via le paramètre `maxdepth`.
 
 ### Illumination et Matériaux
