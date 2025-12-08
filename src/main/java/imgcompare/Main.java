@@ -19,10 +19,11 @@ public class Main {
 
         // 1. Vérifier les arguments
         if (args.length == 0) {
-            // Cas "aucune image rentrée" : on définit des chemins par défaut
-            System.out.println("Aucun argument fourni. Utilisation des images par défaut.");
-            pathImg1 = "src/main/resources/generee.png"; // Assure-toi que ce fichier existe
-            pathImg2 = "src/main/resources/prof.png"; // Assure-toi que ce fichier existe
+            // Cas "aucune image rentrée"
+            System.err.println("Erreur: Nombre d'arguments incorrect.");
+            System.err.println("Usage: java imgcompare.Main <image1.png> <image2.png>");
+            System.err.println("Usage: ImageCompare.exe <image1.png> <image2.png>");
+            return;
 
         } else if (args.length == 2) {
             // Cas normal : on utilise les arguments fournis
@@ -34,7 +35,6 @@ public class Main {
             System.err.println("Erreur: Nombre d'arguments incorrect.");
             System.err.println("Usage: java imgcompare.Main <image1.png> <image2.png>");
             System.err.println("Usage: ImageCompare.exe <image1.png> <image2.png>");
-            System.err.println("Ou ne fournissez aucun argument pour utiliser les images par défaut.");
             return;
         }
 

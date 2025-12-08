@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ImgCompare">
+    <output-path>$PROJECT_DIR$/out/artifacts/ImgCompare</output-path>
+    <root id="archive" name="IMT-RayTracer.jar">
+      <element id="module-output" name="IMT-RayTracer" />
+    </root>
+  </artifact>
+</component>
